@@ -17,19 +17,33 @@ Here's an overview of the files used in the animations
 	- typed.py (old version of the typed simplification animations)
 - simplify.py (non-typed simplification animations)
 - typed.py (typed simplification animations)
+- reverse.sh (an optional script which takes all videos and creates new ones that play forward-reverse-forward)
 ```
 
 ## Getting Started
 
 1. Install Python 3.7 or newer. It's possible the code works on earlier versions, but I haven't tested it.
-2. Install Manim following the steps here [https://github.com/3b1b/manim](https://github.com/3b1b/manim)
+2. Install Manim following the steps here [https://github.com/3b1b/manim](https://github.com/3b1b/manim). It is strongly recommended to use the "Directly" method, as the library needs to be modified.
 3. Install NetworkX using `pip3 install NetworkX`
 4. 
 	a) If Manim was installed directly, paste the animation library directly into the **root** folder of the Manim library (i.e. `simplify.py` should be in the same directory level as `setup.py` from the Manim library.
-	b) Otherwise, the animation library can go anywhere.
-5.
-	a) If Manim was installed directly, an animation can be rendered using the command `python3 ./manim.py <file with animations.py> <AnimationClass>`, e.g. `python3 ./manim.py simplify.py DotProofOne`
-	b) If Manim was installed as a library, an animation can be rendered using the command `manim <file with animations.py> <AnimationClass>`, e.g. `manim simplify.py DotProofOne`
+	
+    b) Otherwise, the animation library can go anywhere.
+5. OPTIONAL: The library needs to be modified slightly to slow down animations. Locate the manimlib folder and inside navigate to `animation/animation.py`. Replace the constant titled `DEFAULT_ANIMATION_RUN_TIME`'s value with a larger one, for example 1.75, which will slow down the animation.
+6.
+	a) If Manim was installed directly, an animation can be rendered using the command `python3 ./manim.py <file with animations>.py <AnimationClass>`, e.g. `python3 ./manim.py simplify.py DotProofOne`
+	
+    b) If Manim was installed as a library, a script needs to be created in the root folder titled `run.py` with the following contents:
+
+    ```python
+    #!/usr/bin/env python
+    import manimlib
+
+    if __name__ == "__main__":
+        manimlib.main()
+    ```
+
+    Then an animation can be rendered using the command `python3 ./run.py <file with animations>.py <AnimationClass>`. This is necessary otherwise manim will not locate the files under `lib/`
 
 The proof will be rendered to `./media/videos/`. Optionally, if working on an animation, add the `-l` flag to the end of the `manim` command to render in reduced quality for preview.
 

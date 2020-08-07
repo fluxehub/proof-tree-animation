@@ -27,7 +27,7 @@ proof_one = ProofData(
         f"r<(N,M):>b<B {TIMES} A>",
         
         #5
-        f"r<(\\lambda z{FUNC_ARROW}({SND} z, {FST} z)) (M,N):>b<A {TIMES} B>"
+        f"r<(\\lambda z{FUNC_ARROW}({SND} z, {FST} z)) (N,M):>b<A {TIMES} B>"
     ],
     edges = [
         (0, 2, TIMES_E_ONE),
@@ -304,7 +304,7 @@ class TypedDotProofOne(ProofScene):
             nodes = [
                 "",
                 "r<M:>b<A>",
-                "r<N[M := z]:>b<B>"
+                "r<N[z := M]:>b<B>"
             ],
             edges = [
                 (0, 1, "assumption"),

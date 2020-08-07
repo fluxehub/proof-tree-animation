@@ -81,8 +81,8 @@ class Proof(VMobject):
                 p.next_to(node, UP)
                 p.shift(UP * 0.15)
                 
-                # If the node has brackets, shift it down a bit so that the inner text stays in line
-                if p.get_tex_string().find("(") != -1 or p.get_tex_string().find("[") != -1 or p.get_tex_string().find("y") != -1:
+                # Lower lines with descenders to keep alignment
+                if p.get_tex_string().find("(") != -1 or p.get_tex_string().find("[") != -1 or p.get_tex_string().find("y") != -1 or p.get_tex_string().find("\\pi") != -1:
                     p.shift(DOWN*0.13)
                 p.align_to(node)
             
