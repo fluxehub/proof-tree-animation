@@ -1,6 +1,6 @@
 # Proof Tree Animation
 
-Animating proof reductions as part of Philip Wadler's ["Propositions as Types"](https://www.youtube.com/watch?v=IOiZatlZtGU) talk, built off of [Manim](https://github.com/3b1b/manim)
+Animating proof reductions as part of Philip Wadler's "[Propositions as Types](https://www.youtube.com/watch?v=IOiZatlZtGU)" talk, built off of [Manim](https://github.com/3b1b/manim)
 
 # Documentation
 
